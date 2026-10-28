@@ -1,0 +1,14 @@
+[server]
+port = 8501
+maxUploadSize = 50
+headless = true
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+primaryColor = "#007f83"
+font = "sans serif"
+
+[client]
+toolbarMode = "minimal"
