@@ -150,7 +150,7 @@ with edit_tab:
             probe = d if d is not None else schema
             custom_signals(probe,rule)
             save(name,rule)
-            st.success('Stratégie sauvegardée dans SQLite.')
+            st.success('Stratégie sauvegardée. Sur la version en ligne, elle reste disponible uniquement pendant cette session.')
         except Exception as e:
             st.error(str(e))
     st.download_button('Exporter les règles JSON',json.dumps(rule,ensure_ascii=False,indent=2),'strategie.json','application/json')
@@ -222,7 +222,7 @@ with result_tab:
         bundle = st.session_state.get('results')
         if bundle and bundle[0]==key:
             _,frame,results,rd,unit,used_cfg = bundle
-            st.caption(f'Résultats du dernier lot enregistré en {unit}. Ils conservent leurs réglages même si la barre latérale change.')
+            st.caption(f'Résultats du dernier lot calculé en {unit}. Ils conservent leurs réglages même si la barre latérale change.')
             with st.expander('Configuration réellement simulée'):
                 st.json(used_cfg)
             cats = st.multiselect('Filtrer les catégories',frame['catégorie'].unique(),default=list(frame['catégorie'].unique()))
